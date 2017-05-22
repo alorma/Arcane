@@ -38,6 +38,16 @@ class MyTest {
 
 # Install ( **TODO** )
 
+```groovy
+
+dependencies {
+
+  compile 'com.github.alorma:arcane:0.0.1'
+
+}
+
+```
+
 Now you can run your usual `connectedAndroidTest` tasks.
 
 # How it works

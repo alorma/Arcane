@@ -1,5 +1,6 @@
 apply plugin: 'com.android.library'
 apply plugin: 'kotlin-android'
+apply plugin: 'com.novoda.bintray-release'
 
 android {
   compileSdkVersion 25
@@ -36,8 +37,18 @@ dependencies {
   })
 }
 
+publish {
+  userOrg = 'alorma'
+  groupId = 'com.github.alorma'
+  artifactId = 'arcane'
+  publishVersion = '0.0.1'
+  desc = 'Run espresso tests in multiple locales'
+  website = 'https://github.com/alorma/Arcane'
+}
+
 // Hack for: https://github.com/novoda/bintray-release/issues/71
 tasks.withType(Javadoc) {
+  options.addBooleanOption('Xdoclint:none', true)
   options.addStringOption('Xdoclint:none', '-quiet')
   options.addStringOption('encoding', 'UTF-8')
 }
