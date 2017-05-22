@@ -7,7 +7,7 @@ import org.junit.runner.Description
 import org.junit.runners.model.Statement
 import java.util.*
 
-open class LocaleRule(val checkLocales: Array<String>?) : TestRule {
+open class LocaleRule(val checkLocales: Array<String>? = null) : TestRule {
 
     override fun apply(base: Statement, description: Description): Statement {
         return object : Statement() {
@@ -33,16 +33,6 @@ open class LocaleRule(val checkLocales: Array<String>?) : TestRule {
         } else {
             return Locale.getDefault()
         }
-    }
-
-    /**
-     * TODO: Use only the APK locales
-     */
-    private fun getValueFolderName(localeTag: String): String {
-        if (localeTag.isEmpty()) {
-            return "values"
-        }
-        return "values-" + localeTag
     }
 
     private fun getLocaleForTag(localeTag: String): Locale {
